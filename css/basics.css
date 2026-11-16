@@ -1,0 +1,102 @@
+@charset "utf-8";
+/* =====================================================================
+   basics.css — basics.html(주식 기초) 전용 스타일
+   common.css 다음에 불러와서 필요한 부분만 덮어씀(오버라이딩)
+   ===================================================================== */
+
+/* [CSS-B1] 클래스 셀렉터 — 용어 표의 분류 칸 */
+.cat {
+  background-color: #e8f3ff;
+  color: var(--navy);
+  font-weight: bold;
+  text-align: center;
+  vertical-align: middle;          /* common.css 의 top 을 오버라이딩 */
+  white-space: nowrap;
+}
+
+/* [CSS-B12] 자손+구조 가상 클래스 — 첫 두 열(분류·용어) 줄바꿈 방지 */
+.terms th:first-child, .terms td b {
+  white-space: nowrap;
+}
+
+/* [CSS-B2] 자손 셀렉터 — 오버라이딩: 용어 표만 머리글 색을 진한 파랑으로 */
+.terms thead th {
+  background-color: var(--navy-light);
+  color: #ffffff;
+}
+
+/* [CSS-B3] 태그 셀렉터 — 정의 목록 */
+dt {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* [CSS-B4] 태그 셀렉터 */
+dd {
+  margin-left: 18px;
+  color: var(--muted);
+}
+
+/* [CSS-B5] 클래스 셀렉터 — 동영상 상자 */
+.video-box {
+  text-align: center;
+  background-color: #000000;
+  border-radius: var(--radius);
+  padding: 10px 0 4px 0;
+}
+
+/* [CSS-B6] 자손 셀렉터 — 동영상 iframe */
+.video-box iframe {
+  max-width: 100%;
+  border: none;
+}
+
+/* [CSS-B7] 클래스 셀렉터 */
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* [CSS-B8] 태그 셀렉터 — Q&A 펼침 상자 */
+details {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 16px;
+  margin-bottom: 10px;
+  background-color: #fbfcfe;
+}
+
+/* [CSS-B9] 태그 셀렉터 */
+summary {
+  font-weight: bold;
+  color: var(--navy);
+  cursor: pointer;
+}
+
+/* [CSS-B10] 가상 클래스 :hover */
+summary:hover {
+  color: var(--up);
+}
+
+/* [CSS-B11] 자손 셀렉터 — 목차 카드 */
+.toc ol {
+  padding-left: 20px;
+  margin: 0;
+}
+
+/* [CSS-B13] 클래스 셀렉터 — 캔들 차트 아래 영상 소제목 */
+.sub-video {
+  font-size: 18px;
+  margin: 22px 0 10px 0;
+}
+
+/* [CSS-B14] 클래스 셀렉터 — 영상 아래 소개 문구 (말풍선 느낌) */
+.video-note {
+  background-color: #e8f3ff;
+  border-left: 4px solid var(--navy);
+  border-radius: 8px;
+  padding: 10px 14px;
+  margin: 10px 0 4px 0;
+  font-size: 15px;
+  color: var(--heading);
+}

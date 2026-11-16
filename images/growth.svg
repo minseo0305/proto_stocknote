@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180" width="320" height="180">
+  <!-- 직접 제작한 일러스트: 복리 성장(눈덩이) -->
+  <rect width="320" height="180" rx="16" fill="#e8f3ff"/>
+  <path d="M20 150 Q160 150 300 40" fill="none" stroke="#4cc2ff" stroke-width="4" stroke-dasharray="8 6"/>
+  <circle cx="60" cy="140" r="9" fill="#3182f6"/>
+  <circle cx="140" cy="128" r="15" fill="#3182f6" fill-opacity="0.85"/>
+  <circle cx="215" cy="102" r="22" fill="#3182f6" fill-opacity="0.75"/>
+  <circle cx="275" cy="60" r="30" fill="#3182f6" fill-opacity="0.65"/>
+  <text x="20" y="34" font-family="sans-serif" font-size="16" font-weight="bold" fill="#191f28">시간이 만드는 복리 효과</text>
+</svg>

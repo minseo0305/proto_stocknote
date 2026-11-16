@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* =====================================================================
+   links.css — links.html(참고 사이트·의견) / result.html(전송 결과) 공용
+   ===================================================================== */
+
+/* [CSS-L1] 클래스 셀렉터 — 사이트 목록 */
+.site-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* [CSS-L2] 자손 셀렉터 — 목록 한 줄 */
+.site-list li {
+  padding: 12px 14px;
+  border-bottom: 1px dashed var(--line);
+  transition: background-color 0.3s;
+}
+
+/* [CSS-L3] 가상 클래스 :hover */
+.site-list li:hover {
+  background-color: #f5faff;
+}
+
+/* [CSS-L4] 자식 셀렉터 — 링크 아래 설명 */
+.site-list li > span {
+  display: block;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* [CSS-L5] 자식 셀렉터 — 사이트 이름 */
+.site-list li > a {
+  font-weight: bold;
+  font-size: 17px;
+}
+
+/* [CSS-L6] 태그 셀렉터 — 폼 영역 묶음 */
+fieldset {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 18px 16px 18px;
+  margin-bottom: 16px;
+}
+
+/* [CSS-L7] 태그 셀렉터 */
+legend {
+  font-weight: bold;
+  color: var(--navy);
+  padding: 0 6px;
+}
+
+/* [CSS-L8] 그룹 셀렉터 — 입력칸 공통 */
+input[type="text"], input[type="email"], select, textarea {
+  padding: 7px 10px;
+  border: 1px solid #d1d6db;
+  border-radius: 6px;
+  font-family: var(--font);
+  font-size: 15px;
+  margin: 6px 8px 6px 0;
+}
+
+/* [CSS-L9] 속성 셀렉터 — 라벨이 붙은 입력칸 앞 글자 */
+label[for], .label-text {
+  display: inline-block;
+  min-width: 90px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+/* [CSS-L10] 태그 셀렉터 */
+textarea {
+  width: 95%;
+  resize: vertical;
+}
+
+/* [CSS-L11] 다중 클래스 — 보조 버튼 (.btn 오버라이딩: 색만 변경) */
+.btn.btn-sub {
+  background-color: #b0b8c1;
+}
+
+/* [CSS-L12] 클래스 셀렉터 — GET/POST 표시 */
+.tag {
+  font-size: 13px;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 6px;
+  vertical-align: middle;
+}
+
+/* [CSS-L13] 다중 클래스 */
+.tag.get  { background-color: var(--down); }
+.tag.post { background-color: var(--up); }
+
+/* [CSS-L14] 클래스 셀렉터 */
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* [CSS-L15] id + 클래스 셀렉터 — 오버라이딩: 사이드(aside)가 없는 페이지는
+   common.css 의 #main(float:left, 68%)을 덮어써서 본문을 전체 폭으로 */
+#main.full {
+  float: none;
+  width: 100%;
+}
+
+/* [CSS-L16] 자손 셀렉터 — 앱 표 첫 열 줄바꿈 방지 */
+.apps td:first-child {
+  white-space: nowrap;
+}
+
+/* [CSS-L17] 클래스 셀렉터 — 용도 배지 */
+.use {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+/* [CSS-L18] 다중 클래스 — 용도별 배지 색 (.use 의 색만 오버라이딩) */
+.use.overseas { background-color: #e8f3ff; color: var(--navy); }
+.use.domestic { background-color: #ffeef0; color: var(--up); }
+.use.longterm { background-color: #e6f8ef; color: #12a05c; }
+.use.all      { background-color: #f2f4f6; color: var(--heading); }

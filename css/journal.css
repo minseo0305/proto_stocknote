@@ -1,0 +1,162 @@
+@charset "utf-8";
+/* =====================================================================
+   journal.css — journal.html(투자 일지) 전용 스타일
+   ===================================================================== */
+
+/* [CSS-J1] 클래스 셀렉터 — 원칙 목록 */
+.rules {
+  font-size: 17px;
+  padding-left: 24px;
+}
+
+/* [CSS-J2] 자손 셀렉터 */
+.rules li {
+  margin-bottom: 8px;
+  padding-left: 6px;
+}
+
+/* [CSS-J3] 구조 가상 클래스 — 첫 번째 원칙만 강조 */
+.rules li:first-child {
+  color: var(--navy);
+}
+
+/* [CSS-J4] 클래스 셀렉터 — 회고 2단 배치 (inline-block, Lecture6) */
+.half {
+  display: inline-block;
+  vertical-align: top;
+  width: 46%;
+  margin-right: 2%;
+  padding: 4px 14px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+/* [CSS-J5] 다중 클래스 셀렉터 — 같은 .half 에 배경색만 다르게 */
+.half.good { background-color: #fff4f5; }
+.half.bad  { background-color: #f1f6ff; }
+
+/* [CSS-J6] 자손 셀렉터 — 오버라이딩: 회고 소제목 색 */
+.good h3 { color: var(--up); }
+.bad h3  { color: var(--down); }
+
+
+/* [CSS-J8] 클래스 셀렉터 */
+.small {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+/* [CSS-J9] 태그 셀렉터 — 오디오 플레이어 */
+audio {
+  width: 100%;
+  margin: 6px 0;
+}
+
+/* [CSS-J10] 클래스 셀렉터 — 계산기 입력 영역 */
+.calc-form {
+  background-color: var(--bg);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+
+/* [CSS-J11] 자손 셀렉터 */
+.calc-form label {
+  font-weight: bold;
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+/* [CSS-J12] 자손 셀렉터 */
+.calc-form input {
+  width: 110px;
+  padding: 6px 8px;
+  margin-right: 10px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  font-family: var(--font);
+}
+
+/* [CSS-J13] id 셀렉터 — 계산 결과 표 높이 제한 + 스크롤(overflow) */
+#calcResult {
+  max-height: 360px;
+  overflow: auto;
+}
+
+/* [CSS-J14] 클래스 셀렉터 — 회고 항목 아래 깨달음 문장 */
+.lesson {
+  display: inline-block;
+  margin-top: 4px;
+  font-size: 14px;
+  color: var(--navy);
+}
+
+/* ===== 관심 종목 차트 (홈에서 이 페이지로 옮겨 옴) ===== */
+/* [CSS-JC22] 클래스 셀렉터 — 종목 하나의 영역 */
+.stock {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 14px;
+}
+
+/* [CSS-JC23] 클래스 셀렉터 — 종목 이름과 섹터 배지를 한 줄에 (float) */
+.stock-head {
+  overflow: hidden;
+}
+
+/* [CSS-JC24] 자손 셀렉터 */
+.stock-head h3 {
+  float: left;
+  margin: 0;
+  font-size: 20px;
+}
+
+/* [CSS-JC25] 클래스 셀렉터 — 종목코드 */
+.code {
+  font-size: 13px;
+  font-weight: normal;
+  color: var(--muted);
+}
+
+/* [CSS-JC26] 클래스 셀렉터 — 섹터 배지 (오른쪽 정렬) */
+.sector-badge {
+  float: right;
+  padding: 2px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+/* [CSS-JC27] 클래스 셀렉터 — 섹터별 배지 색 (섹터 카드 색과 통일) */
+.chip-bg   { background-color: #e3edff; color: var(--down); }
+.rocket-bg { background-color: #ffe6ea; color: var(--up); }
+.core-bg   { background-color: #fff3d6; color: #9a6a00; }
+
+/* [CSS-JC28] 그룹 셀렉터 — 작은 설명 글자 */
+.stock-desc, .small-note, .chart-src {
+  font-size: 14px;
+  color: var(--muted);
+  margin: 6px 0;
+}
+
+/* [CSS-JC29] 다중 클래스 — 차트 버튼은 .btn 보다 작게 (오버라이딩) */
+.btn.btn-chart {
+  padding: 5px 14px;
+  font-size: 13px;
+  background-color: #e8f3ff;
+  color: var(--navy);
+}
+
+/* [CSS-JC30] 다중 클래스 + :hover */
+.btn.btn-chart:hover {
+  background-color: var(--navy);
+  color: #ffffff;
+}
+
+/* [CSS-JC31] 자손 셀렉터 — 차트 이미지는 둥근 모서리 없이 배경 흰색 */
+.stock figure img {
+  border-radius: 0;
+  background-color: #ffffff;
+}
+

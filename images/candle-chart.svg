@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" width="640" height="360">
+<!-- 직접 제작한 캔들 차트 일러스트 (실제 종목 데이터 아님) -->
+<rect width="640" height="360" rx="18" fill="#191f28"/>
+<line x1="40" y1="60" x2="610" y2="60" stroke="#ffffff" stroke-opacity="0.08"/>
+<line x1="40" y1="120" x2="610" y2="120" stroke="#ffffff" stroke-opacity="0.08"/>
+<line x1="40" y1="180" x2="610" y2="180" stroke="#ffffff" stroke-opacity="0.08"/>
+<line x1="40" y1="240" x2="610" y2="240" stroke="#ffffff" stroke-opacity="0.08"/>
+<line x1="40" y1="300" x2="610" y2="300" stroke="#ffffff" stroke-opacity="0.08"/>
+<line x1="55" y1="60.0" x2="55" y2="110.2" stroke="#3182f6" stroke-width="2"/>
+<rect x="48" y="71.4" width="14" height="15.5" rx="2" fill="#3182f6"/>
+<line x1="80" y1="66.4" x2="80" y2="146.7" stroke="#3182f6" stroke-width="2"/>
+<rect x="73" y="86.9" width="14" height="43.2" rx="2" fill="#3182f6"/>
+<line x1="105" y1="110.3" x2="105" y2="183.8" stroke="#3182f6" stroke-width="2"/>
+<rect x="98" y="130.2" width="14" height="44.8" rx="2" fill="#3182f6"/>
+<line x1="130" y1="165.5" x2="130" y2="188.4" stroke="#3182f6" stroke-width="2"/>
+<rect x="123" y="175.0" width="14" height="3.4" rx="2" fill="#3182f6"/>
+<line x1="155" y1="151.0" x2="155" y2="193.6" stroke="#3182f6" stroke-width="2"/>
+<rect x="148" y="178.4" width="14" height="4.4" rx="2" fill="#3182f6"/>
+<line x1="180" y1="160.1" x2="180" y2="239.7" stroke="#3182f6" stroke-width="2"/>
+<rect x="173" y="182.8" width="14" height="26.6" rx="2" fill="#3182f6"/>
+<line x1="205" y1="179.7" x2="205" y2="240.4" stroke="#f04452" stroke-width="2"/>
+<rect x="198" y="197.0" width="14" height="12.5" rx="2" fill="#f04452"/>
+<line x1="230" y1="168.8" x2="230" y2="257.8" stroke="#3182f6" stroke-width="2"/>
+<rect x="223" y="197.0" width="14" height="46.1" rx="2" fill="#3182f6"/>
+<line x1="255" y1="232.4" x2="255" y2="293.5" stroke="#3182f6" stroke-width="2"/>
+<rect x="248" y="243.0" width="14" height="35.3" rx="2" fill="#3182f6"/>
+<line x1="280" y1="227.4" x2="280" y2="300.0" stroke="#f04452" stroke-width="2"/>
+<rect x="273" y="239.5" width="14" height="38.8" rx="2" fill="#f04452"/>
+<line x1="305" y1="203.6" x2="305" y2="260.4" stroke="#f04452" stroke-width="2"/>
+<rect x="298" y="220.3" width="14" height="19.3" rx="2" fill="#f04452"/>
+<line x1="330" y1="211.0" x2="330" y2="277.3" stroke="#3182f6" stroke-width="2"/>
+<rect x="323" y="220.3" width="14" height="44.3" rx="2" fill="#3182f6"/>
+<line x1="355" y1="222.7" x2="355" y2="279.9" stroke="#f04452" stroke-width="2"/>
+<rect x="348" y="240.7" width="14" height="23.8" rx="2" fill="#f04452"/>
+<line x1="380" y1="208.7" x2="380" y2="255.7" stroke="#f04452" stroke-width="2"/>
+<rect x="373" y="227.3" width="14" height="13.4" rx="2" fill="#f04452"/>
+<line x1="405" y1="166.5" x2="405" y2="241.0" stroke="#f04452" stroke-width="2"/>
+<rect x="398" y="190.9" width="14" height="36.4" rx="2" fill="#f04452"/>
+<line x1="430" y1="158.5" x2="430" y2="219.5" stroke="#f04452" stroke-width="2"/>
+<rect x="423" y="178.8" width="14" height="12.2" rx="2" fill="#f04452"/>
+<line x1="455" y1="134.8" x2="455" y2="209.8" stroke="#f04452" stroke-width="2"/>
+<rect x="448" y="149.5" width="14" height="29.3" rx="2" fill="#f04452"/>
+<line x1="480" y1="131.7" x2="480" y2="213.5" stroke="#3182f6" stroke-width="2"/>
+<rect x="473" y="149.5" width="14" height="38.2" rx="2" fill="#3182f6"/>
+<line x1="505" y1="168.3" x2="505" y2="231.0" stroke="#3182f6" stroke-width="2"/>
+<rect x="498" y="187.7" width="14" height="34.5" rx="2" fill="#3182f6"/>
+<line x1="530" y1="173.7" x2="530" y2="243.6" stroke="#f04452" stroke-width="2"/>
+<rect x="523" y="199.7" width="14" height="22.5" rx="2" fill="#f04452"/>
+<line x1="555" y1="139.0" x2="555" y2="224.0" stroke="#f04452" stroke-width="2"/>
+<rect x="548" y="154.3" width="14" height="45.4" rx="2" fill="#f04452"/>
+<line x1="580" y1="118.3" x2="580" y2="173.0" stroke="#f04452" stroke-width="2"/>
+<rect x="573" y="139.9" width="14" height="14.4" rx="2" fill="#f04452"/>
+<polyline fill="none" stroke="#4cc2ff" stroke-width="3" stroke-linecap="round" points="55,86.9 80,108.6 105,130.7 130,142.6 155,150.7 180,175.2 205,188.5 230,202.1 255,222.1 280,233.5 305,235.6 330,249.2 355,248.7 380,238.5 405,228.8 430,220.5 455,197.4 480,186.8 505,185.8 530,187.6 555,182.7 580,180.7"/>
+<text x="40" y="38" fill="#ffffff" font-family="sans-serif" font-size="18" font-weight="bold">캔들 차트 예시</text>
+<text x="610" y="38" fill="#4cc2ff" font-family="sans-serif" font-size="14" text-anchor="end">— 5일 이동평균선</text>
+<text x="610" y="338" fill="#ffffff" fill-opacity="0.6" font-family="sans-serif" font-size="12" text-anchor="end">빨강: 양봉(상승) · 파랑: 음봉(하락)</text>
+</svg>

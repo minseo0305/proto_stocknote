@@ -1,0 +1,466 @@
+@charset "utf-8";
+/* =====================================================================
+   common.css — 사이트 전체 공통 스타일 (모든 페이지가 <link>로 불러옴)
+   ---------------------------------------------------------------------
+   [유지보수 설계]
+   1) 색·글꼴·간격 같은 디자인 값은 맨 위 :root 의 "CSS 변수"에 한 번만 정의
+      → 테마 색을 바꾸고 싶으면 이 블록만 고치면 사이트 전체가 함께 바뀜
+   2) 공통 영역(header, nav, footer, 카드, 표, 버튼)은 이 파일에만 작성
+   3) 페이지마다 다른 부분은 css/페이지명.css 에 따로 작성 (스타일 합치기)
+   [스타일 합치기 & 오버라이딩 우선순위 — 강의자료 Lecture5 참고]
+      common.css(외부)  <  페이지별 css(외부, 나중에 link)  <  <style> 태그  <  style 속성
+      → 같은 프로퍼티는 뒤에 오는 것/더 구체적인 셀렉터가 이김(오버라이딩)
+      → 서로 다른 프로퍼티는 모두 합쳐져서 적용됨(합치기)
+   [평가 5] 사용한 셀렉터 종류: 이 파일 안에 ①~⑧ 번호로 표시
+   [평가 6] 직접 정의한 CSS 규칙: 이 파일 안에 [CSS-01] ~ 번호로 표시
+   ===================================================================== */
+
+/* ---------- 디자인 토큰(CSS 변수) : 일관된 디자인 + 유지보수 ---------- */
+:root {
+  /* 2차 수정: 토스 느낌의 청량한 파란색 테마로 변경 — 이 블록만 바꿔서 사이트 전체 색이 바뀜 */
+  --navy: #3182f6;        /* 메인 색(청량한 파랑): 헤더·표 머리글·버튼 */
+  --navy-light: #1b64da;  /* 메인 색의 진한 톤 */
+  --heading: #191f28;     /* 제목 글자색 */
+  --up: #f04452;          /* 상승(빨강) — 국내 증시 표기 관례 */
+  --down: #3182f6;        /* 하락(파랑) */
+  --gold: #4cc2ff;        /* 포인트 색(하늘색): 제목 밑줄·맨 위로 버튼 */
+  --bg: #f2f4f6;          /* 페이지 배경 */
+  --card: #ffffff;        /* 카드 배경 */
+  --text: #333d4b;
+  --muted: #8b95a1;
+  --line: #e5e8eb;
+  --radius: 18px;         /* 둥근 모서리 공통값 */
+  --font: "Noto Sans KR", "Malgun Gothic", "Apple SD Gothic Neo", sans-serif;
+}
+
+/* [CSS-01] ① 태그(타입) 셀렉터 — 문서 전체 기본값 */
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* [CSS-02] ② 그룹 셀렉터 — 여러 제목 태그를 한 번에 */
+h1, h2, h3 {
+  color: var(--heading);
+  line-height: 1.35;
+}
+
+/* [CSS-03] ① 태그 셀렉터 */
+h2 {
+  font-size: 24px;
+  margin: 0 0 14px 0;
+  padding-bottom: 8px;
+  border-bottom: 3px solid var(--gold);
+  display: table;                 /* 블록처럼 한 줄을 차지하면서, 밑줄은 글자 길이만큼만 */
+}
+
+/* [CSS-04] ① 태그 셀렉터 */
+a {
+  color: var(--down);
+  text-decoration: none;
+}
+
+/* [CSS-05] ③ 가상 클래스 셀렉터 :hover */
+a:hover {
+  text-decoration: underline;
+}
+
+/* [CSS-06] ④ 속성 셀렉터 — 새 창으로 열리는 외부 링크 뒤에 ↗ 표시 */
+a[target="_blank"]::after {
+  content: " ↗";
+  font-size: 12px;
+}
+
+/* ===================== HEADER ===================== */
+/* [CSS-07] ① 태그 셀렉터 */
+header {
+  background-color: var(--navy);
+  color: #ffffff;
+  padding: 26px 0 0 0;
+  position: relative;             /* 안쪽 요소 배치 기준 */
+}
+
+/* [CSS-08] ⑤ 클래스 셀렉터 — 가운데 정렬 컨테이너(모든 페이지 공통 폭) */
+.inner {
+  width: 1080px;
+  max-width: 92%;
+  margin: 0 auto;
+}
+
+/* [CSS-08-2] ⑦ 자식 셀렉터 — 로고(float)와 글자 여백을 header 안에 가둠 */
+header > .inner {
+  overflow: hidden;
+}
+
+/* [CSS-09] ⑥ 자손 셀렉터 — header 안의 img(로고) */
+header img {
+  float: left;
+  width: 64px;
+  height: 64px;
+  margin-right: 16px;
+}
+
+/* [CSS-10] ⑦ 자식 셀렉터 — header 바로 아래 .inner 안의 h1 */
+header > .inner > h1 {
+  color: #ffffff;
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+/* [CSS-11] ⑤ 클래스 셀렉터 */
+.subtitle {
+  margin: 2px 0 18px 0;
+  color: #e8f3ff;
+  font-size: 15px;
+}
+
+/* ---- 시세 전광판 느낌의 흐르는 띠 (Lecture6 애니메이션) ---- */
+/* [CSS-12] ⑤ 클래스 셀렉터 */
+.ticker {
+  clear: both;
+  overflow: hidden;               /* 영역 밖으로 나간 글자 숨김 */
+  white-space: nowrap;
+  background-color: var(--navy-light);
+  border-top: 1px solid #5a9cf8;
+  padding: 7px 0;
+  font-size: 14px;
+}
+
+/* [CSS-13] ⑥ 자손 셀렉터 + 애니메이션 적용 */
+.ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation-name: tickerMove;
+  animation-duration: 28s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+/* [CSS-14] @keyframes — 오른쪽에서 왼쪽으로 이동 */
+@keyframes tickerMove {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-100%); }
+}
+
+/* [CSS-15] ⑤ 클래스 셀렉터 — 상승/하락 색 (사이트 전체에서 재사용) */
+.up   { color: var(--up);   font-weight: bold; }
+.down { color: var(--down); font-weight: bold; }
+.ticker .up   { color: #ffd0d5; }   /* 어두운 배경에서는 밝은 톤으로 오버라이딩 */
+.ticker .down { color: #c9e2ff; }
+
+/* ===================== NAV ===================== */
+/* [CSS-16] ① 태그 셀렉터 */
+nav {
+  background-color: var(--card);
+  border-bottom: 1px solid var(--line);
+  box-shadow: 0 2px 8px rgba(0, 27, 55, 0.05);
+}
+
+/* [CSS-17] ⑥ 자손 셀렉터 — 목록 기호 제거 */
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* [CSS-18] ⑥ 자손 셀렉터 — 가로 메뉴 (Lecture6 display) */
+nav li {
+  display: inline-block;
+}
+
+/* [CSS-19] ⑥ 자손 셀렉터 */
+nav a {
+  display: block;
+  padding: 14px 20px;
+  color: var(--heading);
+  font-weight: bold;
+  border-bottom: 3px solid transparent;
+  transition: background-color 0.3s, border-color 0.3s;   /* Lecture6 transition */
+}
+
+/* [CSS-20] ③ 가상 클래스 :hover */
+nav a:hover {
+  background-color: var(--bg);
+  border-bottom-color: var(--gold);
+  text-decoration: none;
+}
+
+/* [CSS-21] ⑥+⑤ 자손 셀렉터와 클래스 셀렉터의 결합 — 현재 페이지 메뉴 표시 */
+nav a.current {
+  color: var(--up);
+  border-bottom-color: var(--up);
+}
+
+/* ===================== 본문 레이아웃 (float) ===================== */
+/* [CSS-22] ⑤ 클래스 셀렉터 — float 해제용 */
+.container {
+  overflow: hidden;              /* 안쪽 float 요소를 감싸도록 */
+  padding: 30px 0;
+}
+
+/* [CSS-23] ⑧ id 셀렉터 — 본문 영역 */
+#main {
+  float: left;
+  width: 68%;
+}
+
+/* [CSS-24] ① 태그 셀렉터 — 사이드 영역 */
+aside {
+  float: right;
+  width: 28%;
+}
+
+/* [CSS-25] ⑤ 클래스 셀렉터 — 카드 상자 (article, aside 공통 디자인) */
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 14px rgba(0, 27, 55, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+/* [CSS-26] ③ 가상 클래스 :hover + transform (Lecture6) */
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(0, 27, 55, 0.10);
+}
+
+/* [CSS-27] ⑥ 자손 셀렉터 — 사이드 카드 제목은 작게 (h2 규칙 오버라이딩) */
+aside .card h3 {
+  margin-top: 0;
+  font-size: 18px;
+}
+
+/* [CSS-27-2] ⑤ 클래스 셀렉터 — 명언 출처(인물) */
+.quote-who {
+  display: block;
+  margin-top: 6px;
+  font-size: 13px;
+  opacity: 0.8;
+  text-align: right;
+}
+
+/* [CSS-28] ③ 가상 요소 ::first-letter (Lecture5) */
+.lead::first-letter {
+  font-size: 30px;
+  font-weight: bold;
+  color: var(--up);
+}
+
+/* ===================== 표(TABLE) 공통 ===================== */
+/* [CSS-29] ① 태그 셀렉터 */
+table {
+  width: 100%;
+  border-collapse: collapse;     /* 셀 테두리 한 줄로 (Lecture6) */
+  font-size: 15px;
+  margin: 10px 0;
+}
+
+/* [CSS-30] ① 태그 셀렉터 */
+caption {
+  caption-side: top;
+  text-align: left;
+  font-weight: bold;
+  color: var(--muted);
+  padding-bottom: 8px;
+}
+
+/* [CSS-31] ② 그룹 셀렉터 */
+th, td {
+  border: 1px solid var(--line);
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+/* [CSS-32] ⑥ 자손 셀렉터 */
+thead th {
+  background-color: var(--navy);
+  color: #ffffff;
+}
+
+/* [CSS-33] ③ 구조 가상 클래스 :nth-child (Lecture5) — 줄무늬 표 */
+tbody tr:nth-child(even) {
+  background-color: #f9fafb;
+}
+
+/* [CSS-34] ⑥ 자손 셀렉터 */
+tfoot td {
+  background-color: #e8f3ff;
+  color: var(--muted);
+  font-size: 14px;
+}
+
+/* ===================== 그림 ===================== */
+/* [CSS-35] ① 태그 셀렉터 */
+figure {
+  margin: 16px 0;
+  text-align: center;
+}
+
+/* [CSS-36] ⑥ 자손 셀렉터 */
+figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+}
+
+/* [CSS-37] ① 태그 셀렉터 */
+figcaption {
+  font-size: 14px;
+  color: var(--muted);
+  margin-top: 6px;
+}
+
+/* ===================== 버튼/폼 공통 ===================== */
+/* [CSS-38] ⑤ 클래스 셀렉터 */
+.btn {
+  display: inline-block;
+  background-color: var(--navy);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-family: var(--font);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* [CSS-39] ③ 가상 클래스 :hover / :active */
+.btn:hover  { background-color: var(--up); text-decoration: none; }
+.btn:active { transform: scale(0.96); }
+
+/* [CSS-40] ③ 가상 클래스 :focus — 입력 중인 칸 강조 */
+input:focus, select:focus, textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(49, 130, 246, 0.25);
+}
+
+/* ===================== 기타 ===================== */
+/* [CSS-41] ① 태그 셀렉터 — 인라인 시맨틱 태그 mark */
+mark {
+  background-color: #d6ecff;
+  padding: 0 3px;
+  border-radius: 3px;
+}
+
+/* [CSS-42] ⑤ 클래스 셀렉터 — 주의 문구 상자 */
+.notice {
+  background-color: #fff4f5;
+  border-left: 5px solid var(--up);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #6b2a32;
+  border-radius: 6px;
+}
+
+/* [CSS-43] ⑧ id 셀렉터 + position: fixed — 맨 위로 버튼 (Lecture6) */
+#toTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 10;
+  width: 48px;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+  border-radius: 50%;
+  background-color: var(--navy);
+  color: #ffffff;
+  font-weight: bold;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* [CSS-44] ⑧ id 셀렉터 + 가상 클래스 */
+#toTop:hover {
+  transform: rotate(-10deg) scale(1.1);
+  text-decoration: none;
+}
+
+/* ===================== FOOTER ===================== */
+/* [CSS-45] ① 태그 셀렉터 */
+footer {
+  clear: both;
+  background-color: var(--heading);
+  color: #e8f3ff;
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+/* [CSS-46] ⑥ 자손 셀렉터 */
+footer a {
+  color: var(--gold);
+}
+
+/* ===================== 좁은 화면(휴대폰) 대응 ===================== */
+/* [CSS-47] 미디어 쿼리 — 화면 폭이 800px 이하이면 한 줄로 쌓기 */
+@media (max-width: 800px) {
+  #main, aside { float: none; width: 100%; }
+  nav a { padding: 12px 12px; }
+  header > .inner > h1 { font-size: 24px; }
+}
+
+/* [CSS-48] ⑧ 클래스 셀렉터 + position: fixed — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정) */
+.mini-player {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 10;
+  width: 280px;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--up);
+  border-radius: 14px;
+  padding: 8px 10px 6px;
+  box-shadow: 0 6px 18px rgba(0, 27, 55, 0.15);
+}
+
+/* [CSS-49] ⑥ 자손 셀렉터 */
+.mini-player audio {
+  width: 100%;
+  height: 34px;
+}
+
+/* [CSS-50] ⑤ 클래스 셀렉터 — 곡 제목 */
+.mp-title {
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  color: var(--up);
+}
+
+/* [CSS-50-2] ⑤ 클래스 셀렉터 — 플레이어 아래 소개 문구 */
+.mp-desc {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* [CSS-51] 다중 클래스 + 애니메이션 — 자동 재생이 막혔을 때 "눌러서 이어 듣기" 안내 */
+.mini-player.paused-hint {
+  animation: hintBlink 1.2s ease-in-out infinite;
+}
+.mini-player.paused-hint .mp-title::after {
+  content: " — ▶ 눌러서 이어 듣기";
+  color: var(--muted);
+  font-weight: normal;
+}
+@keyframes hintBlink {
+  0%, 100% { box-shadow: 0 6px 18px rgba(0, 27, 55, 0.15); }
+  50%      { box-shadow: 0 0 0 4px rgba(240, 68, 82, 0.35); }
+}
+
+/* [CSS-52] 좁은 화면에서는 미니 플레이어를 작게 */
+@media (max-width: 800px) {
+  .mini-player { width: 220px; left: 10px; bottom: 10px; }
+}

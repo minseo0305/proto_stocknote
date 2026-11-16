@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     journal.html — 투자 일지 · 종목 차트: 투자 원칙, 관심 종목 차트, 2년 회고, 복리 계산기
+     [평가 1] HTML 기본 구조  [평가 3] 그림·링크
+     [평가 4] 시맨틱 태그 + 인라인 시맨틱 태그(mark)
+     ===================================================================== -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>민서의 주식 노트 | 투자 일지 · 종목 차트</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/journal.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <header id="top">
+    <div class="inner">
+      <img src="images/logo.svg" alt="민서의 주식 노트 로고">
+      <h1>민서의 주식 노트</h1>
+      <p class="subtitle">주식 투자 2년 차, 데이터사이언스 전공 대학생의 공부 기록</p>
+    </div>
+    <div class="ticker">
+      <span>
+        분산투자 <b class="up">▲</b> &nbsp;&nbsp; 공시 확인 <b class="up">▲</b> &nbsp;&nbsp;
+        뇌동매매 <b class="down">▼</b> &nbsp;&nbsp; 장기투자 <b class="up">▲</b> &nbsp;&nbsp;
+        빚투 <b class="down">▼</b> &nbsp;&nbsp; 투자일지 쓰기 <b class="up">▲</b> &nbsp;&nbsp;
+        남의 말만 듣고 매수 <b class="down">▼</b> &nbsp;&nbsp; 꾸준한 공부 <b class="up">▲</b> &nbsp;&nbsp; 반도체 💾 &nbsp;&nbsp; 우주항공 🚀
+      </span>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="inner">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="basics.html">주식 기초</a></li>
+      <li><a href="journal.html" class="current">투자 일지 · 종목 차트</a></li>
+      <li><a href="links.html">참고 사이트 · 의견 남기기</a></li>
+    </ul>
+  </nav>
+
+  <div class="container inner">
+    <section id="main">
+
+      <article class="card" id="principles">
+        <h2>나의 투자 원칙 5가지</h2>
+        <ol class="rules">
+          <li><b>이해하는 회사에만</b> 투자한다.</li>
+          <li>사기 전에 <mark>매수 이유</mark>를 한 줄로 적는다.</li>
+          <li>한 종목에 몰빵하지 않고 <span class="up">분산</span>한다.</li>
+          <li>빌린 돈으로 투자하지 않는다. <span class="down">(빚투 금지)</span></li>
+          <li>한 달에 한 번, 투자 일지를 돌아본다.</li>
+        </ol>
+      </article>
+
+      <!-- 관심 종목 실시간 차트
+           ① 국내 주식(SK하이닉스): 네이버페이 증권이 제공하는 차트 이미지를 img 로 표시
+              → 버튼(onclick)으로 차트 종류 변경, 1분마다 새로 불러와 최신 상태 유지 (js/main.js)
+           ② 미국 ETF(ASTX, VOO): 네이버 이미지가 없어 TradingView 무료 차트 위젯 사용
+           [유지보수] 종목을 바꾸려면 종목코드(6자리) 또는 "거래소:티커"만 수정하면 됨 -->
+      <article class="card" id="charts">
+        <h2>관심 종목 실시간 차트</h2>
+        <p class="small-note">차트는 인터넷에 연결되어 있을 때 표시되며, 장중에는 1분마다 자동으로 새로고침돼요.</p>
+
+        <div class="stock">
+          <div class="stock-head">
+            <h3>SK하이닉스 <span class="code">000660 · 코스피</span></h3>
+            <span class="sector-badge chip-bg">💾 반도체</span>
+          </div>
+          <p class="stock-desc">D램·낸드를 만드는 메모리 반도체 기업으로, AI 서버용 고대역폭 메모리(<b>HBM</b>) 시장을 이끄는 선두 업체예요.
+            2026년 6월 사상 최고가를 찍은 뒤 7월까지 40% 넘게 조정받았지만 실적은 오히려 사상 최대 행진 중이에요.
+            → 과열이 식은 구간을 <span class="up">매수 기회</span>로 봤어요.</p>
+          <div class="chart-btns">
+            <button type="button" class="btn btn-chart" onclick="changeChart('area/day')">오늘</button>
+            <button type="button" class="btn btn-chart" onclick="changeChart('candle/day')">일봉</button>
+            <button type="button" class="btn btn-chart" onclick="changeChart('candle/week')">주봉</button>
+            <button type="button" class="btn btn-chart" onclick="changeChart('candle/month')">월봉</button>
+          </div>
+          <figure>
+            <img id="hynixChart" src="https://ssl.pstatic.net/imgfinance/chart/item/area/day/000660.png"
+                 alt="SK하이닉스 주가 차트 (네이버페이 증권)" width="700" height="289">
+            <figcaption>출처: <a href="https://finance.naver.com/item/main.naver?code=000660" target="_blank">네이버페이 증권 SK하이닉스</a></figcaption>
+          </figure>
+          <script>startChartRefresh();</script>
+        </div>
+
+        <div class="stock">
+          <div class="stock-head">
+            <h3>ASTX <span class="code">Cboe BZX · 미국</span></h3>
+            <span class="sector-badge rocket-bg">🚀 우주항공</span>
+          </div>
+          <p class="stock-desc">스마트폰과 위성을 <b>직접</b> 연결하는 위성통신 기업 AST SpaceMobile(ASTS)의 하루 수익률을
+            <b>2배</b>로 따라가는 레버리지 ETF예요 (2025년 7월 상장, 총보수 연 1.3%).
+            매일 수익률을 다시 맞추는 구조라 오래 보유하면 ASTS 수익률의 2배와 결과가 달라질 수 있어서,
+            장기 투자는 <span class="up">비중과 기간을 신중하게</span> 정하려고 해요.</p>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol": "BATS:ASTX", "width": "100%", "height": 240, "locale": "kr", "dateRange": "3M",
+             "colorTheme": "light", "isTransparent": true, "autosize": false, "chartOnly": false}
+            </script>
+          </div>
+          <p class="chart-src">출처: <a href="https://www.tradingview.com/symbols/BATS-ASTX/" target="_blank">TradingView ASTX</a></p>
+        </div>
+
+        <div class="stock">
+          <div class="stock-head">
+            <h3>VOO <span class="code">NYSE Arca · 미국</span></h3>
+            <span class="sector-badge core-bg">🇺🇸 미국 대표지수</span>
+          </div>
+          <p class="stock-desc">미국 대표 기업 약 500개로 이루어진 <b>S&amp;P 500 지수</b>를 따라가는 뱅가드의 ETF예요.
+            총보수가 연 0.03%로 매우 낮고, 한 번 사면 미국 시장 전체에 분산 투자하는 효과가 있어요.
+            → 개별 종목과 레버리지 상품의 위험을 받쳐 주는 <b>안전판</b> 역할이에요.</p>
+          <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol": "AMEX:VOO", "width": "100%", "height": 240, "locale": "kr", "dateRange": "12M",
+             "colorTheme": "light", "isTransparent": true, "autosize": false, "chartOnly": false}
+            </script>
+          </div>
+          <p class="chart-src">출처: <a href="https://www.tradingview.com/symbols/AMEX-VOO/" target="_blank">TradingView VOO</a></p>
+        </div>
+      </article>
+
+      <article class="card" id="review">
+        <h2>2년 회고</h2>
+        <div class="half good">
+          <h3>잘한 점 👍</h3>
+          <ul>
+            <li>돈을 생활비 · 예적금 · 주식으로 나눠 관리한 것</li>
+            <li>공시와 재무제표를 읽는 습관을 들인 것</li>
+            <li>투자 일지를 꾸준히 쓰기 시작한 것</li>
+          </ul>
+        </div>
+        <div class="half bad">
+          <h3>아쉬운 점 🤔</h3>
+          <ul>
+            <li>첫 투자를 임상 결과에 크게 흔들리는 바이오 개별주로 시작한 것</li>
+            <li>조금만 <span class="up">양전</span>해도 참지 못하고 판 것
+              <br><span class="lesson">→ 익절은 늘 옳지만, 주식에선 <b>'참을성 많은 사람이 참을성 없는 사람의 시간과 돈을 가져간다'</b>는 깨달음을 얻음</span></li>
+            <li>매수 이유를 기록하지 않았던 것</li>
+          </ul>
+        </div>
+      </article>
+
+
+
+      <!-- 자바스크립트 복리 계산기 (Lecture7·8: 함수, 반복문, Math) -->
+      <article class="card" id="calc">
+        <h2>복리 계산기</h2>
+        <p>"시간이 복리의 친구"라는 말을 직접 확인해 보려고 만든 계산기예요.</p>
+        <div class="calc-form">
+          <label for="principal">원금(원)</label>
+          <input type="number" id="principal" value="1000000" min="1">
+          <label for="rate">연 수익률(%)</label>
+          <input type="number" id="rate" value="5" step="0.1">
+          <label for="years">기간(년)</label>
+          <input type="number" id="years" value="10" min="1" max="40">
+          <button type="button" class="btn" onclick="calcCompound()">계산하기</button>
+        </div>
+        <div id="calcResult"></div>
+      </article>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h3>이 페이지 바로가기</h3>
+        <ul>
+          <li><a href="#principles">나의 투자 원칙</a></li>
+          <li><a href="#charts">관심 종목 차트</a></li>
+          <li><a href="#review">2년 회고</a></li>
+          <li><a href="#calc">복리 계산기</a></li>
+        </ul>
+      </div>
+      <div class="card">
+        <figure>
+          <img src="images/growth.svg" alt="복리를 체감하기 위한 그래프" width="320" height="180">
+          <figcaption>복리를 체감하기 위한 그래프</figcaption>
+        </figure>
+      </div>
+      <div class="card">
+        <h3>투자 일지 쓰는 법</h3>
+        <ol>
+          <li>날짜와 종목</li>
+          <li>매수/매도 이유 한 줄</li>
+          <li>그때의 감정 (불안? 확신?)</li>
+          <li>한 달 뒤 결과와 반성</li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>💡 오늘의 투자 명언</h3>
+        <p><script>writeQuote();</script></p>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2026 민서의 주식 노트 · 웹기초프로그래밍 과제</p>
+    <p>문의는 <a href="links.html#feedback">의견 남기기</a>를 이용해 주세요.</p>
+  </footer>
+
+  <a href="#top" id="toTop" title="맨 위로">▲</a>
+
+  <!-- [평가 3] 음악 삽입 — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정)
+       audio 태그(loop, 볼륨 30%) / 페이지를 옮겨도 이어서 재생 (js/main.js 의 initBGM) -->
+  <div id="miniPlayer" class="mini-player">
+    <span class="mp-title">♪ 레드벨벳 - 빨간 맛</span>
+    <audio id="bgm" controls loop preload="auto">
+      <source src="media/red-flavor.mp3" type="audio/mpeg">
+      이 브라우저는 audio 태그를 지원하지 않습니다.
+    </audio>
+    <p class="mp-desc">내 주식에도 <span class="up">빨간불</span>이 들어오길 바라며 매일 아침 듣는 노래</p>
+  </div>
+  <script>initBGM();</script>
+</body>
+</html>

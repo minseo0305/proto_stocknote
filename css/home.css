@@ -1,0 +1,125 @@
+@charset "utf-8";
+/* =====================================================================
+   home.css — index.html(홈) 전용 스타일
+   common.css 를 먼저 불러온 뒤 이 파일을 불러오므로,
+   같은 프로퍼티는 여기 값이 이기고(오버라이딩), 다른 프로퍼티는 합쳐짐
+   ===================================================================== */
+
+/* [CSS-H1] 클래스 셀렉터 — 히어로 카드: 배경만 새로 지정, 나머지(.card)는 그대로 합쳐짐 */
+.hero {
+  background-color: #f5faff;
+  border-top: 6px solid var(--gold);
+}
+
+/* [CSS-H2] 자손 셀렉터 — 오버라이딩: common.css 의 h2(24px)를 히어로에서만 28px로 */
+.hero h2 {
+  font-size: 28px;
+  border-bottom: none;            /* common.css 의 노란 밑줄 제거 */
+}
+
+/* [CSS-H3] 클래스 셀렉터 — 소개 문단 */
+.lead {
+  font-size: 17px;
+}
+
+/* [CSS-H4] 클래스 셀렉터 — 표 안의 단계 배지 */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 20px;
+  background-color: var(--navy);
+  color: #ffffff;
+  font-size: 13px;
+  white-space: nowrap;            /* 배지 글자가 두 줄로 나뉘지 않게 */
+}
+
+/* [CSS-H10] 구조 가상 클래스 — 타임라인 표의 '시기' 칸 줄바꿈 방지 */
+#timeline tbody td:first-child {
+  white-space: nowrap;
+  font-weight: bold;
+  vertical-align: middle;
+}
+
+/* [CSS-H5] 다중 클래스 셀렉터 — 배지 색 오버라이딩 (.badge 의 배경색만 바꿈) */
+.badge.up-bg   { background-color: var(--up); }
+.badge.down-bg { background-color: var(--down); }
+
+/* [CSS-H11] 클래스 셀렉터 — 섹터 카드 2단 배치 (inline-block) */
+.sector {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  margin: 8px 1% 0 0;
+  padding: 14px 18px;
+  border-radius: 12px;
+  box-sizing: border-box;
+  font-size: 15px;
+}
+
+/* [CSS-H12] 다중 클래스 — 섹터마다 배경·테두리 색만 오버라이딩 */
+.sector.chip   { background-color: #f1f6ff; border-top: 5px solid var(--down); }
+.sector.rocket { background-color: #fff4f5; border-top: 5px solid var(--up); }
+
+/* [CSS-H13] 자손 셀렉터 */
+.sector h3 {
+  margin: 0 0 6px 0;
+  font-size: 20px;
+}
+
+/* [CSS-H14] 자손 셀렉터 — 섹터 키워드 태그 */
+.sector-tags span {
+  display: inline-block;
+  background-color: #ffffff;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 0 10px;
+  margin: 0 4px 4px 0;
+  font-size: 13px;
+  color: var(--navy);
+}
+
+/* [CSS-H15] 자손 셀렉터 */
+.sector ul {
+  padding-left: 18px;
+  margin: 6px 0;
+}
+
+/* [CSS-H16] 클래스 셀렉터 */
+.check {
+  font-size: 13px;
+  color: var(--muted);
+  border-top: 1px dashed #cfd6e4;
+  padding-top: 6px;
+  margin-bottom: 0;
+}
+
+/* [CSS-H6] 클래스 셀렉터 — 프로필 카드 가운데 정렬 */
+.profile {
+  text-align: center;
+}
+
+/* [CSS-H7] 자손 셀렉터 — 프로필 사진: 목 아래까지 보이도록 둥근 사각형 */
+.profile img {
+  width: 170px;
+  border-radius: 18px;
+  border: 4px solid var(--gold);
+}
+
+/* [CSS-H8] 클래스 셀렉터 — 한마디 카드 */
+.quote {
+  background-color: var(--navy);
+  color: #ffffff;
+}
+
+/* [CSS-H9] 자손 셀렉터 — 오버라이딩: aside .card h3(검정) → 파란 카드에서는 흰색 */
+aside .quote h3 {
+  color: #ffffff;
+}
+
+
+/* [CSS-H32] 자손 셀렉터 — 주식 이야기 소제목 */
+.story h3 {
+  font-size: 18px;
+  margin: 18px 0 4px 0;
+  color: var(--navy-light);
+}

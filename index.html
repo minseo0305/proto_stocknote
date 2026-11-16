@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     index.html — 홈: 민서의 주식 노트 (관심사: 주식 투자 2년)
+     [평가 1] HTML 기본 구조: DOCTYPE → html → head(meta, title) → body
+     [평가 4] 시맨틱 구조: header / nav / section#main(article×3) / aside / footer
+     [가산점] 스타일 합치기·오버라이딩: 아래 head 의 link 2개 + style 태그 + style 속성
+     ===================================================================== -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="주식 투자 2년 차 대학생 민서의 주식 공부 기록">
+  <title>민서의 주식 노트 | 홈</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+
+  <!-- ① 공통 외부 스타일 → ② 페이지 전용 외부 스타일 순서로 불러옴 (뒤에 온 것이 우선) -->
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/home.css">
+
+  <!-- ③ 문서 내부 스타일(<style>) — 외부 CSS 보다 우선 적용됨 -->
+  <style>
+    /* [오버라이딩 예시] common.css 의 .lead 는 글자 크기 지정이 없음,
+       home.css 에서 17px → 여기서 color 만 추가 → 세 곳의 스타일이 "합쳐져" 적용됨 */
+    .lead { color: #333a45; }
+  </style>
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <!-- ===================== HEADER (모든 페이지 공통) ===================== -->
+  <header id="top">
+    <div class="inner">
+      <img src="images/logo.svg" alt="민서의 주식 노트 로고">
+      <h1>민서의 주식 노트</h1>
+      <p class="subtitle">주식 투자 2년 차, 데이터사이언스 전공 대학생의 공부 기록</p>
+    </div>
+    <div class="ticker">
+      <span>
+        분산투자 <b class="up">▲</b> &nbsp;&nbsp; 공시 확인 <b class="up">▲</b> &nbsp;&nbsp;
+        뇌동매매 <b class="down">▼</b> &nbsp;&nbsp; 장기투자 <b class="up">▲</b> &nbsp;&nbsp;
+        빚투 <b class="down">▼</b> &nbsp;&nbsp; 투자일지 쓰기 <b class="up">▲</b> &nbsp;&nbsp;
+        남의 말만 듣고 매수 <b class="down">▼</b> &nbsp;&nbsp; 꾸준한 공부 <b class="up">▲</b> &nbsp;&nbsp; 반도체 💾 &nbsp;&nbsp; 우주항공 🚀
+      </span>
+    </div>
+  </header>
+
+  <!-- ===================== NAV (모든 페이지 공통) ===================== -->
+  <nav>
+    <ul class="inner">
+      <li><a href="index.html" class="current">홈</a></li>
+      <li><a href="basics.html">주식 기초</a></li>
+      <li><a href="journal.html">투자 일지 · 종목 차트</a></li>
+      <li><a href="links.html">참고 사이트 · 의견 남기기</a></li>
+    </ul>
+  </nav>
+
+  <div class="container inner">
+
+    <!-- ===================== 본문 SECTION ===================== -->
+    <section id="main">
+
+      <!-- 히어로 영역 -->
+      <article class="card hero">
+        <h2>안녕하세요, 주식하는 대학생 민서입니다</h2>
+        <p class="lead">
+          저는 데이터사이언스를 공부하는 2학년 학생입니다. 주식 투자를 처음 시작한 것은 <time datetime="2022">2022년</time>이었습니다.
+          하지만 주식에 대해 공부하고 체계적으로 투자한 것은 <time datetime="2024-12">2024년 겨울</time>부터로, 이제 <mark>2년 차</mark>가 되었습니다.
+          처음엔 아르바이트로 번 돈을 어떻게 관리할지 고민하다 시작했지만, 지금은 기업을 공부하고 숫자를 읽는 과정
+          자체가 재미있어서 꾸준히 기록하고 있습니다.
+        </p>
+      </article>
+
+      <!-- 나의 주식 히스토리 — 본인이 직접 쓴 글을 다듬어 정리 -->
+      <article class="card story" id="why">
+        <h2>나의 주식 히스토리</h2>
+
+        <h3>1. 알바비에서 시작된 투자</h3>
+        <p>
+          <time datetime="2022">2022년</time>, 수시 재수를 준비하면서 여러 아르바이트를 함께 했습니다.
+          일이 많은 달에는 한 달에 <b>200만 원</b>까지 벌기도 했어요. 이후 그 돈으로 자취를 시작하면서
+          "번 돈을 어떻게 관리해야 할까?"를 오래 고민했고, 결국 돈을
+          <mark>생활비 · 예적금 · 주식</mark> 세 갈래로 나눠 관리하기 시작했습니다.
+        </p>
+
+        <h3>2. 첫 투자, 바이오에서 배운 것</h3>
+        <p>
+          처음 산 주식은 바이오 분야의 개별 종목이었습니다. 코로나 시기를 겪으며 백신 개발이 얼마나 중요한지
+          실감했기 때문이에요. 하지만 바이오 기업의 주가는 임상 결과가 나올 때마다 크게 출렁였고,
+          결과를 미리 알 수 없는 개인 투자자에게는 <span class="down">'운'에 가까운 영역</span>이라는 걸 깨달았습니다.
+        </p>
+
+        <h3>3. 우량주 + 고배당주로 씨드 다지기</h3>
+        <p>
+          그래서 투자 방향을 두 가지로 바꿨습니다. 애플·테슬라 같은 <b>미국 대형주</b>를 꾸준히 사 모으고,
+          <b>고배당주</b>로 배당 수익을 챙기며 위험을 줄이는 방식이었어요. 이렇게 씨드머니의 기반을 다진 결과,
+          200만 원으로 시작한 주식 계좌는 <span class="up">200만 원의 수익</span>과 추가로 넣은 500만 원이 더해져
+          현재 <mark>900만 원</mark>이 되었습니다.
+        </p>
+
+        <h3>4. 그리고 지금</h3>
+        <p>
+          반도체 과열이 한풀 꺾인 지금, 오히려 좋은 가격이라고 판단해 <b>SK하이닉스</b>를 매수했습니다.
+          또 우주 산업의 성장 가능성을 보고 <b>ASTX</b>를 담아 장기적인 관점도 고민하고 있고,
+          미국 대표 기업 500개에 분산하는 <b>VOO</b>로 전체 위험을 관리하고 있어요.
+          각 종목의 특징과 차트는 <a href="journal.html#charts">투자 일지 · 종목 차트</a> 페이지에 정리했습니다.
+        </p>
+      </article>
+
+      <!-- 관심 투자 섹터 — 반도체 / 우주항공 -->
+      <article class="card" id="sectors">
+        <h2>제가 관심 있게 투자한 섹터</h2>
+        <p>2년 동안 여러 분야를 살펴봤지만, 제가 꾸준히 관심을 두고 투자한 섹터는 <mark>반도체</mark>와 <mark>우주항공</mark>이에요.</p>
+
+        <div class="sector chip">
+          <h3><span class="sector-icon">💾</span> 반도체</h3>
+          <p class="sector-tags"><span>메모리</span><span>파운드리</span><span>HBM</span><span>AI 서버</span></p>
+          <ul>
+            <li>우리나라 <b>수출 1위 품목</b>으로, 한국 증시에서 비중이 가장 큰 업종</li>
+            <li>AI 서버에 들어가는 고대역폭 메모리(HBM) 수요가 핵심 이슈</li>
+            <li>경기에 따라 업황이 크게 오르내리는 <span class="down">사이클 산업</span></li>
+          </ul>
+          <p class="check">체크 포인트: 메모리 가격 흐름, 수출 통계, 실적 발표</p>
+        </div>
+
+        <div class="sector rocket">
+          <h3><span class="sector-icon">🚀</span> 우주항공</h3>
+          <p class="sector-tags"><span>위성</span><span>발사체</span><span>항공 부품</span><span>방산</span></p>
+          <ul>
+            <li>누리호 발사와 2024년 <b>우주항공청</b> 출범으로 관심이 커진 분야</li>
+            <li>위성·발사체·항공기 부품·방산 기업이 함께 묶여 움직이는 경우가 많음</li>
+            <li>기대감으로 크게 오르내리는 <span class="up">변동성 큰 테마</span> → 분할 매수로 접근</li>
+          </ul>
+          <p class="check">체크 포인트: 발사 일정, 정부 정책·예산, 수주 공시</p>
+        </div>
+      </article>
+
+      <!-- [평가 2] TABLE: caption, thead, tbody, tfoot, rowspan, colspan 사용 -->
+      <article class="card" id="timeline">
+        <h2>나의 2년 투자 타임라인</h2>
+        <table>
+          <caption>표 1. 알바비에서 900만 원 계좌까지, 나의 투자 여정</caption>
+          <thead>
+            <tr>
+              <th>시기</th>
+              <th>단계</th>
+              <th>한 일</th>
+              <th>배운 점</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2">2022년~</td>
+              <td><span class="badge">준비</span></td>
+              <td>수시 재수와 여러 아르바이트 병행 (많은 달 월 200만 원)</td>
+              <td>돈을 <b>생활비 · 예적금 · 주식</b>으로 나눠 관리하기 시작</td>
+            </tr>
+            <tr>
+              <td><span class="badge down-bg">시행착오</span></td>
+              <td>첫 투자로 바이오 개별주 매수</td>
+              <td>임상 결과에 따라 크게 출렁이는 주가 → <span class="down">예측하기 어려운 영역</span>임을 깨달음</td>
+            </tr>
+            <tr>
+              <td rowspan="2">2024년 겨울~</td>
+              <td><span class="badge">씨드 다지기</span></td>
+              <td>애플·테슬라 등 미국 대형주 + 고배당주 꾸준히 매수</td>
+              <td>200만 원 → 수익 200만 원 + 추가 500만 원 = <span class="up">900만 원</span></td>
+            </tr>
+            <tr>
+              <td><span class="badge up-bg">현재</span></td>
+              <td>SK하이닉스 · ASTX · VOO 보유</td>
+              <td>섹터 투자(반도체·우주항공)와 지수 ETF로 <span class="up">균형</span> 맞추기</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="4">※ 900만 원에는 중간에 추가로 넣은 500만 원이 포함되어 있습니다. (투자 수익 200만 원 = 원금 200만 원의 약 100%)</td>
+            </tr>
+          </tfoot>
+        </table>
+      </article>
+
+      <!-- 전공과 연결 -->
+      <article class="card" id="data">
+        <h2>데이터사이언스 × 주식</h2>
+        <p>
+          주식 시장은 매일 엄청난 양의 데이터(가격, 거래량, 재무제표, 뉴스)가 쏟아지는 곳이에요.
+          전공 수업에서 배운 데이터 분석을 직접 써 볼 수 있다는 점이 제가 주식에 계속 관심을 갖는 이유이기도 합니다.
+        </p>
+        <ul>
+          <li>엑셀/파이썬으로 관심 기업의 <mark>재무 지표 비교표</mark> 만들기</li>
+          <li>주가와 거래량을 <mark>시각화</mark>해서 흐름 읽어 보기</li>
+          <li>감정이 아니라 <mark>데이터</mark>로 판단하는 연습</li>
+        </ul>
+        <!-- [평가 3] 사이트 내부 링크 -->
+        <p>주식 용어가 궁금하다면 → <a href="basics.html">주식 기초 페이지</a>,
+           제 투자 원칙은 → <a href="journal.html#principles">투자 일지 · 종목 차트 페이지</a>에 정리해 두었어요.</p>
+      </article>
+    </section>
+
+    <!-- ===================== ASIDE (보조 정보) ===================== -->
+    <aside>
+      <div class="card profile">
+        <figure>
+          <img src="images/profile.jpg" alt="민서 프로필 사진" width="170" height="214">
+          <figcaption>프로필 사진</figcaption>
+        </figure>
+        <h3>강민서</h3>
+        <p>덕성여자대학교 데이터사이언스학과 2학년<br>학번 20250615<br>주식 투자 경력 <strong>2년</strong></p>
+      </div>
+
+      <div class="card">
+        <h3>📅 오늘</h3>
+        <!-- 자바스크립트 Date 객체로 오늘 날짜와 장 운영 여부 출력 -->
+        <p><script>writeToday();</script></p>
+      </div>
+
+      <div class="card quote">
+        <h3>💡 오늘의 투자 명언</h3>
+        <!-- 접속할 때마다 Math.random() 으로 다른 명언 (js/main.js) -->
+        <p><script>writeQuote();</script></p>
+      </div>
+
+      <div class="card">
+        <h3>이 페이지 바로가기</h3>
+        <!-- 같은 페이지 안의 앵커 링크 (Lecture2) -->
+        <ul>
+          <li><a href="#why">나의 주식 히스토리</a></li>
+          <li><a href="#sectors">관심 투자 섹터</a></li>
+          <li><a href="#timeline">2년 투자 타임라인</a></li>
+          <li><a href="#data">데이터사이언스 × 주식</a></li>
+        </ul>
+      </div>
+
+      <!-- ④ style 속성(인라인) — 가장 우선순위가 높음.
+           .notice 의 다른 속성은 common.css 것과 합쳐지고, font-size 만 덮어씀 -->
+      <p class="notice" style="font-size:13px;">
+        이 사이트는 개인 공부 기록이며, 특정 종목의 매수·매도를 권유하지 않습니다.
+      </p>
+    </aside>
+  </div>
+
+  <!-- ===================== FOOTER (모든 페이지 공통) ===================== -->
+  <footer>
+    <p>© 2026 민서의 주식 노트 · 웹기초프로그래밍 과제</p>
+    <p>문의는 <a href="links.html#feedback">의견 남기기</a>를 이용해 주세요.</p>
+  </footer>
+
+  <a href="#top" id="toTop" title="맨 위로">▲</a>
+  <!-- [평가 3] 음악 삽입 — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정)
+       audio 태그(loop, 볼륨 30%) / 페이지를 옮겨도 이어서 재생 (js/main.js 의 initBGM) -->
+  <div id="miniPlayer" class="mini-player">
+    <span class="mp-title">♪ 레드벨벳 - 빨간 맛</span>
+    <audio id="bgm" controls loop preload="auto">
+      <source src="media/red-flavor.mp3" type="audio/mpeg">
+      이 브라우저는 audio 태그를 지원하지 않습니다.
+    </audio>
+    <p class="mp-desc">내 주식에도 <span class="up">빨간불</span>이 들어오길 바라며 매일 아침 듣는 노래</p>
+  </div>
+  <script>initBGM();</script>
+</body>
+</html>

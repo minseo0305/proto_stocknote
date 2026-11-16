@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     result.html — GET 방식으로 전송된 폼 데이터를 받아서 보여 주는 페이지
+     links.html 의 <form action="result.html" method="get"> 이 이 페이지로 이동하면서
+     주소 뒤에 ?닉네임=...&투자경력=... 형태로 데이터를 붙여 보냄
+     → js/main.js 의 getQueryData() 가 그 부분을 잘라서 표로 출력
+     ===================================================================== -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>민서의 주식 노트 | 의견 전송 결과</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/links.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <header id="top">
+    <div class="inner">
+      <img src="images/logo.svg" alt="민서의 주식 노트 로고">
+      <h1>민서의 주식 노트</h1>
+      <p class="subtitle">주식 투자 2년 차, 데이터사이언스 전공 대학생의 공부 기록</p>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="inner">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="basics.html">주식 기초</a></li>
+      <li><a href="journal.html">투자 일지 · 종목 차트</a></li>
+      <li><a href="links.html" class="current">참고 사이트 · 의견 남기기</a></li>
+    </ul>
+  </nav>
+
+  <div class="container inner">
+    <section id="main">
+      <article class="card">
+        <h2>의견이 전달되었어요! <span class="tag get">GET</span></h2>
+        <p>보내 주신 의견은 운영자 메일로도 전달되었어요. 아래는 주소창(URL)의 <code>?</code> 뒤에 붙어 전달된 데이터를 자바스크립트로 읽은 결과입니다.</p>
+        <script>
+          let data = getQueryData();
+          let count = 0;
+          document.write("<table><caption>받은 폼 데이터</caption>");
+          document.write("<thead><tr><th>항목(name)</th><th>값(value)</th></tr></thead><tbody>");
+          for (let key in data) {                    // 객체의 모든 속성 반복 (Lecture8)
+            document.write("<tr><td>" + escapeHTML(key) + "</td><td>" + escapeHTML(data[key]) + "</td></tr>");
+            count++;
+          }
+          if (count == 0) {
+            document.write("<tr><td colspan='2'>전달된 데이터가 없어요. 의견 남기기 폼에서 보내 주세요.</td></tr>");
+          }
+          document.write("</tbody></table>");
+        </script>
+        <p class="small">실제 전달된 주소:<br><code><script>document.write(escapeHTML(decodeURIComponent(location.href)));</script></code></p>
+        <p><a href="links.html#feedback" class="btn">← 다시 작성하기</a></p>
+      </article>
+    </section>
+
+    <aside>
+      <div class="card">
+        <h3>GET 방식이란?</h3>
+        <p class="small">폼 데이터가 URL 뒤에 <code>?이름=값&amp;이름=값</code> 형태로 붙어서 전송돼요.
+          그래서 검색처럼 결과 주소를 공유해야 할 때 주로 쓰고, 비밀번호 같은 정보에는 쓰지 않아요.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2026 민서의 주식 노트 · 웹기초프로그래밍 과제</p>
+  </footer>
+
+  <!-- [평가 3] 음악 삽입 — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정)
+       audio 태그(loop, 볼륨 30%) / 페이지를 옮겨도 이어서 재생 (js/main.js 의 initBGM) -->
+  <div id="miniPlayer" class="mini-player">
+    <span class="mp-title">♪ 레드벨벳 - 빨간 맛</span>
+    <audio id="bgm" controls loop preload="auto">
+      <source src="media/red-flavor.mp3" type="audio/mpeg">
+      이 브라우저는 audio 태그를 지원하지 않습니다.
+    </audio>
+    <p class="mp-desc">내 주식에도 <span class="up">빨간불</span>이 들어오길 바라며 매일 아침 듣는 노래</p>
+  </div>
+  <script>initBGM();</script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     links.html — 참고 사이트(하이퍼링크) + 의견 남기기(웹 폼)
+     [평가 1] HTML 기본 구조  [평가 3] 외부 하이퍼링크 (target="_blank")
+     [평가 4] 시맨틱 태그 + 웹 폼(form, label, input, select, datalist, textarea)
+     [가산점] 폼 GET 방식 실제 동작: result.html 이 주소창의 데이터를 읽어 표로 출력
+              폼 POST + HTTPS 실제 동작: 전송 순간 같은 내용을 FormSubmit(https)으로 POST → 운영자 메일로 도착
+     ===================================================================== -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>민서의 주식 노트 | 참고 사이트 · 의견 남기기</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/links.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <header id="top">
+    <div class="inner">
+      <img src="images/logo.svg" alt="민서의 주식 노트 로고">
+      <h1>민서의 주식 노트</h1>
+      <p class="subtitle">주식 투자 2년 차, 데이터사이언스 전공 대학생의 공부 기록</p>
+    </div>
+    <div class="ticker">
+      <span>
+        분산투자 <b class="up">▲</b> &nbsp;&nbsp; 공시 확인 <b class="up">▲</b> &nbsp;&nbsp;
+        뇌동매매 <b class="down">▼</b> &nbsp;&nbsp; 장기투자 <b class="up">▲</b> &nbsp;&nbsp;
+        빚투 <b class="down">▼</b> &nbsp;&nbsp; 투자일지 쓰기 <b class="up">▲</b> &nbsp;&nbsp;
+        남의 말만 듣고 매수 <b class="down">▼</b> &nbsp;&nbsp; 꾸준한 공부 <b class="up">▲</b> &nbsp;&nbsp; 반도체 💾 &nbsp;&nbsp; 우주항공 🚀
+      </span>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="inner">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="basics.html">주식 기초</a></li>
+      <li><a href="journal.html">투자 일지 · 종목 차트</a></li>
+      <li><a href="links.html" class="current">참고 사이트 · 의견 남기기</a></li>
+    </ul>
+  </nav>
+
+  <div class="container inner">
+    <section id="main" class="full">
+
+      <!-- [평가 2] TABLE — 내가 쓰는 증권 앱 (thead / tbody / tfoot, colspan) -->
+      <article class="card" id="apps">
+        <h2>제가 주로 쓰는 증권 앱</h2>
+        <p>목적에 따라 앱을 나눠 쓰고, 통합 관리 앱으로 한눈에 모아 봐요.</p>
+        <table class="apps">
+          <caption>표 3. 용도별로 나눠 쓰는 증권 앱</caption>
+          <thead>
+            <tr>
+              <th>앱</th>
+              <th>주 용도</th>
+              <th>쓰는 이유</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>토스증권</b></td>
+              <td><span class="use overseas">해외 주식</span></td>
+              <td>달러 환전 수수료 우대가 좋고, 해외 주식을 쉽게 사고팔 수 있어요.</td>
+            </tr>
+            <tr>
+              <td><b>키움증권 영웅문</b></td>
+              <td><span class="use domestic">국내 주식</span></td>
+              <td>인터페이스가 복잡하지 않은 편이라 국내 주식을 관리할 때 써요.</td>
+            </tr>
+            <tr>
+              <td><b>우리투자증권</b></td>
+              <td><span class="use longterm">CMA · ISA</span></td>
+              <td><b>CMA 노트 계좌</b>와 <b>ISA 계좌</b>를 관리해요.
+                ISA는 <b>세금 혜택을 받으며</b> 최장 10년 동안 장기 투자하기 위한 계좌로,
+                <mark>코스닥150</mark>, <mark>TIGER 은행고배당</mark> 등을 담고 있어요.</td>
+            </tr>
+            <tr>
+              <td><b>도미노</b></td>
+              <td><span class="use all">통합 관리</span></td>
+              <td>여러 증권 앱에 흩어진 계좌를 한곳에 모아 관리해요.</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">※ 해외 주식은 토스, 국내 주식은 키움, 장기 투자는 우리투자증권 — 목적별로 계좌를 나눠 관리 중</td>
+            </tr>
+          </tfoot>
+        </table>
+      </article>
+
+      <!-- [평가 3] 하이퍼링크 — 외부 사이트 7개, 새 탭(target="_blank")으로 열기 -->
+      <article class="card" id="sites">
+        <h2>제가 자주 쓰는 사이트</h2>
+        <ul class="site-list">
+          <li>
+            <a href="https://www.krx.co.kr" target="_blank">한국거래소 (KRX)</a>
+            <span>주식시장 운영 기관. 시장 제도, 상장 기업, 통계 확인</span>
+          </li>
+          <li>
+            <a href="https://finance.naver.com" target="_blank">네이버페이 증권</a>
+            <span>시세, 차트, 뉴스, 종목 토론을 한눈에</span>
+          </li>
+          <li>
+            <a href="https://fine.fss.or.kr" target="_blank">금융소비자 정보포털 파인 (FINE)</a>
+            <span>금융상품 비교, 내 계좌 한눈에 보기</span>
+          </li>
+          <li>
+            <a href="https://kr.investing.com" target="_blank">인베스팅닷컴 (Investing.com)</a>
+            <span>전 세계 주가지수·환율·원자재 시세와 경제 지표 발표 일정을 한눈에</span>
+          </li>
+        </ul>
+      </article>
+
+      <!-- [평가 4] 웹 폼 + [가산점] GET 방식 실제 구현
+           action="result.html", method="get" → 입력값이 주소 뒤에 ?이름=값&... 으로 붙어서 전달됨
+           result.html 의 자바스크립트가 그 값을 읽어 화면에 표시 (서버 없이도 동작) -->
+      <article class="card" id="feedback">
+        <h2>의견 남기기 <span class="tag get">GET</span></h2>
+        <!-- onsubmit: 전송 버튼을 누르면 ① sendFeedbackMail() 이 HTTPS·POST 로 메일 발송 → ② GET 으로 result.html 이동 -->
+        <form name="feedbackForm" action="result.html" method="get" onsubmit="return sendFeedbackMail(this);">
+          <fieldset>
+            <legend>방문자 정보</legend>
+            <label for="nick">닉네임</label>
+            <input type="text" id="nick" name="닉네임" placeholder="예: 주린이" required><br>
+
+            <label for="career">투자 경력</label>
+            <select id="career" name="투자경력">
+              <option value="아직 안 해 봄">아직 안 해 봄</option>
+              <option value="1년 미만" selected>1년 미만</option>
+              <option value="1~3년">1~3년</option>
+              <option value="3년 이상">3년 이상</option>
+            </select><br>
+
+            <label for="favorite">관심 분야</label>
+            <input type="text" id="favorite" name="관심분야" list="fields" placeholder="입력하거나 골라 주세요">
+            <datalist id="fields">
+              <option value="국내 주식">
+              <option value="미국 주식">
+              <option value="ETF">
+              <option value="배당주">
+            </datalist>
+          </fieldset>
+
+          <fieldset>
+            <legend>사이트 평가</legend>
+            <span class="label-text">가장 도움 된 페이지</span>
+            <label><input type="radio" name="도움된페이지" value="주식 기초" checked> 주식 기초</label>
+            <label><input type="radio" name="도움된페이지" value="투자 일지"> 투자 일지</label>
+            <label><input type="radio" name="도움된페이지" value="참고 사이트"> 참고 사이트</label><br>
+
+            <span class="label-text">더 보고 싶은 내용</span>
+            <label><input type="checkbox" name="더보고싶은내용" value="재무제표 읽는 법"> 재무제표 읽는 법</label>
+            <label><input type="checkbox" name="더보고싶은내용" value="데이터 분석"> 데이터 분석</label>
+            <label><input type="checkbox" name="더보고싶은내용" value="투자 실수담"> 투자 실수담</label><br>
+
+            <label for="score">만족도</label>
+            <input type="range" id="score" name="만족도" min="1" max="5" value="4"> (1~5)<br>
+
+            <label for="msg">한마디</label><br>
+            <textarea id="msg" name="한마디" rows="4" cols="50" placeholder="자유롭게 남겨 주세요"></textarea>
+          </fieldset>
+
+          <button type="submit" class="btn" id="sendBtn">의견 보내기</button>
+          <button type="reset" class="btn btn-sub">다시 쓰기</button>
+        </form>
+      </article>
+
+    </section>
+
+  </div>
+
+  <footer>
+    <p>© 2026 민서의 주식 노트 · 웹기초프로그래밍 과제</p>
+    <p>문의는 <a href="links.html#feedback">의견 남기기</a>를 이용해 주세요.</p>
+  </footer>
+
+  <a href="#top" id="toTop" title="맨 위로">▲</a>
+
+  <!-- [평가 3] 음악 삽입 — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정)
+       audio 태그(loop, 볼륨 30%) / 페이지를 옮겨도 이어서 재생 (js/main.js 의 initBGM) -->
+  <div id="miniPlayer" class="mini-player">
+    <span class="mp-title">♪ 레드벨벳 - 빨간 맛</span>
+    <audio id="bgm" controls loop preload="auto">
+      <source src="media/red-flavor.mp3" type="audio/mpeg">
+      이 브라우저는 audio 태그를 지원하지 않습니다.
+    </audio>
+    <p class="mp-desc">내 주식에도 <span class="up">빨간불</span>이 들어오길 바라며 매일 아침 듣는 노래</p>
+  </div>
+  <script>initBGM();</script>
+</body>
+</html>

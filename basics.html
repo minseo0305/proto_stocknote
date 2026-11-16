@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<!-- =====================================================================
+     basics.html — 주식 기초: 용어 표, 캔들 차트 읽기, 동영상, Q&A
+     [평가 1] HTML 기본 구조  [평가 2] TABLE  [평가 3] 그림·동영상·링크
+     [평가 4] header/nav/section/article/aside/footer, figure, details/summary
+     ===================================================================== -->
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>민서의 주식 노트 | 주식 기초</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/basics.css">
+  <script src="js/main.js"></script>
+</head>
+<body>
+
+  <header id="top">
+    <div class="inner">
+      <img src="images/logo.svg" alt="민서의 주식 노트 로고">
+      <h1>민서의 주식 노트</h1>
+      <p class="subtitle">주식 투자 2년 차, 데이터사이언스 전공 대학생의 공부 기록</p>
+    </div>
+    <div class="ticker">
+      <span>
+        분산투자 <b class="up">▲</b> &nbsp;&nbsp; 공시 확인 <b class="up">▲</b> &nbsp;&nbsp;
+        뇌동매매 <b class="down">▼</b> &nbsp;&nbsp; 장기투자 <b class="up">▲</b> &nbsp;&nbsp;
+        빚투 <b class="down">▼</b> &nbsp;&nbsp; 투자일지 쓰기 <b class="up">▲</b> &nbsp;&nbsp;
+        남의 말만 듣고 매수 <b class="down">▼</b> &nbsp;&nbsp; 꾸준한 공부 <b class="up">▲</b> &nbsp;&nbsp; 반도체 💾 &nbsp;&nbsp; 우주항공 🚀
+      </span>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="inner">
+      <li><a href="index.html">홈</a></li>
+      <li><a href="basics.html" class="current">주식 기초</a></li>
+      <li><a href="journal.html">투자 일지 · 종목 차트</a></li>
+      <li><a href="links.html">참고 사이트 · 의견 남기기</a></li>
+    </ul>
+  </nav>
+
+  <div class="container inner">
+    <section id="main">
+
+      <article class="card" id="what">
+        <h2>주식이란?</h2>
+        <p>
+          주식은 회사의 <mark>소유권을 잘게 나눈 증서</mark>예요. 주식을 산다는 건 그 회사의 작은 주인이 된다는 뜻이고,
+          회사가 성장하면 주가 상승(시세차익)이나 <strong>배당</strong>으로 이익을 나눠 받을 수 있습니다.
+          반대로 회사가 어려워지면 주가가 떨어져 <span class="down">원금 손실</span>이 생길 수도 있어요.
+        </p>
+        <p>
+          우리나라 정규 주식시장은 평일 <time>09:00</time>부터 <time>15:30</time>까지 열립니다.
+        </p>
+      </article>
+
+      <!-- [평가 2] TABLE — rowspan 으로 분류 묶기, colspan 으로 표 하단 합치기 -->
+      <article class="card" id="terms">
+        <h2>꼭 알아야 할 주식 용어</h2>
+        <table class="terms">
+          <caption>표 2. 처음 주식을 시작할 때 제가 가장 헷갈렸던 용어 정리</caption>
+          <thead>
+            <tr>
+              <th>분류</th>
+              <th>용어</th>
+              <th>뜻</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td rowspan="2" class="cat">시장</td>
+              <td><b>코스피(KOSPI)</b></td>
+              <td>유가증권시장. 규모가 큰 대표 기업들이 주로 상장된 시장</td>
+            </tr>
+            <tr>
+              <td><b>코스닥(KOSDAQ)</b></td>
+              <td>기술·성장 중심 기업이 많이 상장된 시장</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="cat">주문</td>
+              <td><b>지정가 주문</b></td>
+              <td>내가 정한 가격에만 사고팔겠다는 주문</td>
+            </tr>
+            <tr>
+              <td><b>시장가 주문</b></td>
+              <td>가격을 정하지 않고 지금 거래 가능한 가격으로 바로 체결하는 주문</td>
+            </tr>
+            <tr>
+              <td rowspan="4" class="cat">지표</td>
+              <td><b>PER</b> (주가수익비율)</td>
+              <td>주가 ÷ 주당순이익(EPS). 이익에 비해 주가가 몇 배인지</td>
+            </tr>
+            <tr>
+              <td><b>PBR</b> (주가순자산비율)</td>
+              <td>주가 ÷ 주당순자산(BPS). 회사 순자산에 비해 주가가 몇 배인지</td>
+            </tr>
+            <tr>
+              <td><b>ROE</b> (자기자본이익률)</td>
+              <td>순이익 ÷ 자기자본 × 100. 내 돈(자본)으로 얼마나 효율적으로 벌었는지</td>
+            </tr>
+            <tr>
+              <td><b>배당</b></td>
+              <td>회사가 번 이익의 일부를 주주에게 나눠 주는 것</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td colspan="3">※ PER·PBR은 같은 업종끼리 비교해야 의미가 있어요. 숫자 하나만 보고 판단하지 않기!</td>
+            </tr>
+          </tfoot>
+        </table>
+      </article>
+
+      <article class="card" id="candle">
+        <h2>캔들 차트 읽는 법</h2>
+        <!-- [평가 3] 그림 삽입 -->
+        <figure>
+          <img src="images/candle-chart.svg" alt="캔들 차트 예시 그림" width="640" height="360">
+          <figcaption>그림 1. 캔들 차트 (가상의 가격 흐름)</figcaption>
+        </figure>
+        <!-- 정의 목록 dl/dt/dd (Lecture2) -->
+        <dl>
+          <dt class="up">빨간 캔들 (양봉)</dt>
+          <dd>시작 가격(시가)보다 끝 가격(종가)이 <b>높게</b> 끝난 날</dd>
+          <dt class="down">파란 캔들 (음봉)</dt>
+          <dd>시가보다 종가가 <b>낮게</b> 끝난 날</dd>
+          <dt>위·아래 꼬리</dt>
+          <dd>그날 거래된 가장 높은 가격(고가)과 가장 낮은 가격(저가)</dd>
+          <dt>이동평균선</dt>
+          <dd>최근 며칠 동안의 종가 평균을 이은 선. 흐름(추세)을 볼 때 참고</dd>
+        </dl>
+
+        <!-- [평가 3] 동영상 삽입 — 캔들 차트 공부 영상 (YouTube iframe)
+             재생 버튼을 누르면 YouTube로 이동하지 않고 이 페이지 안에서 바로 재생됨 -->
+        <h3 class="sub-video">함께 보면 좋은 차트 공부 영상</h3>
+        <div class="video-box">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/hO4rb42RPbQ?si=NMyy_Qb56Rt0goTt" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+        <p class="video-note">최근에 인상 깊게 본 차트 공부 영상이에요. 캔들 차트를 읽는 데 큰 도움이 되어서 여러분과도 공유하고 싶어요!</p>
+        <p class="small">영상이 재생되지 않으면
+          <a href="https://www.youtube.com/watch?v=hO4rb42RPbQ" target="_blank">YouTube에서 직접 보기</a></p>
+      </article>
+
+
+      <!-- [평가 4] details / summary — 펼쳐 보는 Q&A (Lecture3) -->
+      <article class="card" id="qna">
+        <h2>자주 받는 질문 Q&amp;A</h2>
+        <details>
+          <summary>Q1. 돈이 적어도 주식을 할 수 있나요?</summary>
+          <p>네. 1주 단위로 살 수 있어서 소액으로도 시작할 수 있어요. 저도 아르바이트비 일부로 시작했어요.</p>
+        </details>
+        <details>
+          <summary>Q2. 어떤 종목을 사야 하나요?</summary>
+          <p>종목 추천은 하지 않아요! 대신 <mark>내가 이해할 수 있는 회사</mark>인지,
+             공시와 재무제표를 확인했는지 스스로 점검해 보는 걸 추천해요.</p>
+        </details>
+        <details>
+          <summary>Q3. 가장 크게 배운 실수는?</summary>
+          <p>첫 투자로 바이오 개별주를 샀던 경험이요. 임상 결과에 따라 주가가 크게 출렁이는 걸 보고, <b>예측하기 어려운 곳에 큰돈을 걸지 않는</b> 원칙을 세웠어요.</p>
+        </details>
+      </article>
+    </section>
+
+    <aside>
+      <div class="card toc">
+        <h3>목차</h3>
+        <ol>
+          <li><a href="#what">주식이란?</a></li>
+          <li><a href="#terms">주식 용어</a></li>
+          <li><a href="#candle">캔들 차트 읽는 법</a></li>
+          <li><a href="#qna">Q&amp;A</a></li>
+        </ol>
+      </div>
+      <div class="card">
+        <h3>📅 오늘</h3>
+        <p><script>writeToday();</script></p>
+      </div>
+      <div class="card">
+        <h3>더 공부하려면</h3>
+        <p>한국거래소 <a href="https://www.krx.co.kr" target="_blank">KRX</a>에서 시장 제도와 통계를,
+           <a href="https://dart.fss.or.kr" target="_blank">DART</a>에서 기업 공시를 볼 수 있어요.</p>
+      </div>
+    </aside>
+  </div>
+
+  <footer>
+    <p>© 2026 민서의 주식 노트 · 웹기초프로그래밍 과제</p>
+    <p>문의는 <a href="links.html#feedback">의견 남기기</a>를 이용해 주세요.</p>
+  </footer>
+
+  <a href="#top" id="toTop" title="맨 위로">▲</a>
+
+  <!-- [평가 3] 음악 삽입 — 모든 페이지 공통 BGM 미니 플레이어 (왼쪽 아래 고정)
+       audio 태그(loop, 볼륨 30%) / 페이지를 옮겨도 이어서 재생 (js/main.js 의 initBGM) -->
+  <div id="miniPlayer" class="mini-player">
+    <span class="mp-title">♪ 레드벨벳 - 빨간 맛</span>
+    <audio id="bgm" controls loop preload="auto">
+      <source src="media/red-flavor.mp3" type="audio/mpeg">
+      이 브라우저는 audio 태그를 지원하지 않습니다.
+    </audio>
+    <p class="mp-desc">내 주식에도 <span class="up">빨간불</span>이 들어오길 바라며 매일 아침 듣는 노래</p>
+  </div>
+  <script>initBGM();</script>
+</body>
+</html>
